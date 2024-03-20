@@ -1,8 +1,8 @@
 $(document).ready( function() {
+//Get IDs
+const urlFile;
 
-const urlFile = '/local/scripts/DynamicTable/ids.txt'
-
-//Обработка JSON файла с данными
+//Get JSON
     function loadJSON(path, success, error) {
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
@@ -19,9 +19,10 @@ const urlFile = '/local/scripts/DynamicTable/ids.txt'
         xhr.send();
     }
     
-    //Получение JSON файла с данными
-    loadJSON("/local/scripts/DynamicTable/data.json", dynamicTable, "jsonp");
+    //Here JSON get
+    loadJSON(JSON, dynamicTable, "jsonp");
 
+    //Here we add data in table
     function enterData(elements, Data, path) {
 
       elements = Array.isArray(elements) || elements instanceof HTMLCollection ? Array.from(elements) : [elements];
@@ -33,13 +34,13 @@ const urlFile = '/local/scripts/DynamicTable/ids.txt'
       });
     }
 
-    //Вывод данных
+    //Table
     function dynamicTable(Data) {
 
       fetch(urlFile)
         .then(response => {
           if(!response.ok) {
-            throw new Error('Error gk-mact.ru #1: Запрос не удался.')
+            throw new Error('Error. Problem with JSON')
           }
           return response.text();
         })
@@ -56,13 +57,5 @@ const urlFile = '/local/scripts/DynamicTable/ids.txt'
             }
           }) 
         })
-
-      //Инициализация переменной, куда будет выводится товар
-      //Пример инициализаци: let programmist_1s_usluga1 = document.getElementsByClassName("programmist_1c_payment")
-      let programmist_1c_payment = document.getElementsByClassName("programmist_1c_payment")
-
-      //Здесь выводятся данные
-      // Пример: enterData(programmist_1s_usluga1, Data, 'programmist_1s.payment')
-      enterData(programmist_1c_payment, Data, 'programmist_1c.payment');
     }
 })
