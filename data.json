@@ -1,10 +1,8 @@
 {
-    "programmist_1c": {
-        "role" : "Программист 1C",
-        "payment": 1800,
-        "soprovozhdenie-1s-kp-its": 2209,
-        "abonentskoe-obsluzhivanie-1s": 3000,
-        "nastrojka-obmena-1s-s-kassovym-po": 2000,
-        "nastrojka-programmy-loyalnosti": 4500  
+    "name": {
+        "role" : "name",
+        "id1": "id1",
+        "id2": "id2",
+        "id3": "id3",
     }
 }
